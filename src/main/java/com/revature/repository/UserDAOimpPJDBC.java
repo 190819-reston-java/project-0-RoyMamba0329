@@ -122,8 +122,13 @@ public class UserDAOimpPJDBC implements UserDAO {
 			StreamCloser.close(stmt);
 		}
 
-		Uid = u.getId();
-		return u;
+		try {
+			Uid = u.getId();
+			return u;
+		}catch (Exception e) {
+			return u = null;
+		}
+		
 	}
 
 	@Override
